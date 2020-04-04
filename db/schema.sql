@@ -1,7 +1,7 @@
 drop database if exists petIndustry_DB;
 create database petIndustry_DB;
 use petIndustry_DB;
-CREATE TABLE petManufacturers (
+CREATE TABLE foodManufacturers (
     id INT NOT NULL AUTO_INCREMENT,
     bizName VARCHAR(255),
     website VARCHAR (255),
