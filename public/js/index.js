@@ -1,11 +1,17 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
+var $productSearchTxt = $("#productSearchTxt");
 var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
+var $productSearchBtn = $("#productSearchBtn");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
+  searchPetFood: function(searchText) {
+    return $.ajax({
+      url: "api/petfood/" + searchText,
+      type: "GET"
+    });
+  },
   saveExample: function(example) {
     return $.ajax({
       headers: {
@@ -65,7 +71,7 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
+    text: $productSearchTxt.val().trim(),
     description: $exampleDescription.val().trim()
   };
 
@@ -78,8 +84,25 @@ var handleFormSubmit = function(event) {
     refreshExamples();
   });
 
-  $exampleText.val("");
+  $productSearchTxt.val("");
   $exampleDescription.val("");
+};
+
+// handleSearchFormSubmit is called whenever we submit a new pet food search
+var handleSearchFormSubmit = function(event) {
+  event.preventDefault();
+  const searchText = $productSearchTxt.val().trim();
+
+  if (!searchText) {
+    alert("You must enter a product name of pet food name!");
+    return;
+  }
+
+  API.searchPetFood(searchText).then(function(data) {
+    console.log(data);
+  });
+
+  $productSearchTxt.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -95,5 +118,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$productSearchBtn.on("click", handleSearchFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);

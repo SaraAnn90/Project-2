@@ -1,9 +1,22 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const PetFood = sequelize.define('PetFood', {
-    foodName: DataTypes.STRING,
-    petType: DataTypes.STRING,
-    foodType: DataTypes.STRING,
+    brandName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    foodName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    petType: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    foodType: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     ingred001: DataTypes.STRING,
     ingred002: DataTypes.STRING,
     ingred003: DataTypes.STRING,
@@ -12,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   PetFood.associate = function(models) {
     // associations can be defined here
+    PetFood.belongsTo(models.FoodManufacturer);
   };
   return PetFood;
 };

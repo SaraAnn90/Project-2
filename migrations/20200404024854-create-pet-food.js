@@ -8,14 +8,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      brandName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       foodName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       petType: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(10),
+        allowNull: false
       },
       foodType: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(10),
+        allowNull: false
       },
       ingred001: {
         type: Sequelize.STRING
@@ -37,7 +44,6 @@ module.exports = {
         references: {
           model: {
             tableName: 'FoodManufacturers',
-            schema: 'schema'
           },
           key: 'id'
         },
