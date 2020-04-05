@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 var db = require("../models");
 
 module.exports = function(app) {
@@ -7,6 +8,22 @@ module.exports = function(app) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/petfood/:searchtext", function(req, res) {
+    const searchtext =  req.params.searchtext;
+    db.PetFood.findAll({
+      where: {
+        [Op.or]: [
+          { brandname: { [Op.like]: '%' + searchtext + '%' } }, 
+          { foodName: { [Op.like]: '%' + searchtext + '%' } }
+        ]
+      }, 
+      include: db.FoodManufacturer}).then(function(petFoods) {
+      res.render("index", {
+        petfoods: petFoods
       });
     });
   });

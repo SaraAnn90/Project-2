@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       bizName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       website: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        isUrl: true
       },
       createdAt: {
         allowNull: false,
