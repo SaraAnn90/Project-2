@@ -1,0 +1,15 @@
+<!-- Product -->
+<section class="content-section" id="productDetail">
+    <div class="container">
+        {{#with product}}
+        <div class="content-section-heading text-center">
+            <h2 class="mb-5">{{dataValues.brandName}}</h2>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2">
+            <p class="card-text">{{dataValues.foodName}}</p>
+        </div>
+        {{/with}}
+    </div>
+</section>
+
+
