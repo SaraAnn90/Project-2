@@ -12,21 +12,38 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/petfood/:searchtext", function(req, res) {
-    const searchtext =  req.params.searchtext;
+  app.get("/petfood", function(req, res) {
+    const searchtext =  req.query.searchtext;
+    let results = { noResults: true };
     db.PetFood.findAll({
       where: {
         [Op.or]: [
           { brandname: { [Op.like]: '%' + searchtext + '%' } }, 
           { foodName: { [Op.like]: '%' + searchtext + '%' } }
         ]
-      }, 
-      include: db.FoodManufacturer}).then(function(petFoods) {
-      res.render("index", {
-        petfoods: petFoods
-      });
+      }}).then(function(data) {
+        console.log(data);
+        if (data && data.length) {
+          results = { 
+            products: data
+          };
+        }
+        res.render("index", results);
     });
   });
+
+    // Load pet food page and pass in an example by id
+    app.get("/petfood/:id", function(req, res) {
+      db.PetFood.findOne({ 
+        where: { id: req.params.id },
+        include: db.FoodManufacturer
+      }).then(function(product) {
+        console.log(product);
+        res.render("product", {
+          product: product
+        });
+      });
+    });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

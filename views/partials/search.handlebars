@@ -1,13 +1,14 @@
 <section class="search-section">
     <div class="row">
         <div class="col-md-10 col-lg-8 mx-auto text-center">
-            <form class="form-inline d-flex">
+            <form class="form-inline d-flex" method="GET" action="/petfood">
                 <div class="input-group w-100">
                     <input
                         id="productSearchTxt" 
                         type="text" 
                         class="form-control"
                         placeholder="Enter product name..." 
+                        name="searchtext"
                     >
                     <div class="input-group-append">
                         <button id="productSearchBtn" class="btn btn-primary mx-auto" type="submit">Search</button>

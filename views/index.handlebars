@@ -9,6 +9,29 @@
   </div>
   <div class="overlay"></div>
 </header>
-{{#if petfoods}}
-  {{> petfoodlist }}
+{{#if products}}
+ <!-- Search Results -->
+  <section class="content-section" id="petFoodList">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h2 class="mb-5">Search Results</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2">
+         {{#each products}}
+            {{> product-block}}
+         {{/each}}
+      </div>
+    </div>
+  </section>
+{{/if}}
+{{#if noResults}}
+  <!-- No Results -->
+  <section class="content-section" id="petFoodList">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h2 class="mb-5">Sorry, No results found!</h2>
+        <a href="/" class="btn btn-xl btn-light mr-4">Retry</a>
+      </div>
+    </div>
+  </section>
 {{/if}}

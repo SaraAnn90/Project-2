@@ -99,7 +99,7 @@ var handleSearchFormSubmit = function(event) {
   }
 
   API.searchPetFood(searchText).then(function(data) {
-    console.log(data);
+    showPetsFood(data);
   });
 
   $productSearchTxt.val("");
@@ -118,5 +118,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$productSearchBtn.on("click", handleSearchFormSubmit);
+//$productSearchBtn.on("click", handleSearchFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
