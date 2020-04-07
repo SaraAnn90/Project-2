@@ -3,9 +3,6 @@ node_js: "12"
 branches:
   only:
   - master
-env:
-  - NODE_ENV=production
-  - DATABASE_URL=$DATABASE_URL
 cache:
   directories:
     - node_modules
