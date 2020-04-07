@@ -1,5 +1,5 @@
 language: node_js
-node_js: "8"
+node_js: "12"
 branches:
   only:
   - master
@@ -7,4 +7,14 @@ cache:
   directories:
     - node_modules
 before_install:
-  - mysql -e 'CREATE DATABASE testdb;'
+  - npm install
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: pet-food-analyzer
+  on: master
+  run:
+    - npm install
+    - npx sequelize-cli db:migrate
+    - npx sequelize-cli db:seed:all
+

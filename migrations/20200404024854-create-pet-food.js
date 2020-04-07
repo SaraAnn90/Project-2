@@ -42,9 +42,7 @@ module.exports = {
       foodManufacturerId: {
         type: Sequelize.INTEGER,
         references: {
-          model: {
-            tableName: 'FoodManufacturers',
-          },
+          model: 'FoodManufacturers',
           key: 'id'
         },
         allowNull: false

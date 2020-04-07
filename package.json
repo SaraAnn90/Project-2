@@ -4,10 +4,12 @@
   "description": "Project 2 Starter",
   "main": "server.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "local": "./node_modules/.bin/nodemon server.js",
+    "start": "node server.js",
+    "lint": "./node_modules/.bin/eslint --quiet .",
+    "fix": "./node_modules/.bin/eslint --fix .",
+    "test": "echo \"No test specified!\"",
+    "test_local": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {
@@ -28,5 +30,8 @@
     "mocha": "^6.1.4",
     "nodemon": "^2.0.2",
     "prettier": "^1.17.1"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

@@ -19,6 +19,8 @@ Bulma
 Responsive CSS Framework
 Relatively Easy to use classes
 
+Middleware
+Enabling communication between operating system and app
 Jquery
 Easy access to the DOM for manipluation of screen content
 Handlebars Templating
