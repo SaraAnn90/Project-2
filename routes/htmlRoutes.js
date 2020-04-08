@@ -22,13 +22,9 @@ module.exports = function(app) {
           { foodName: { [Op.like]: '%' + searchtext + '%' } }
         ]
       }}).then(function(data) {
-        console.log(data);
         if (data && data.length) {
           results = { 
-            products: data.map(function(item){
-              item.dataValues.petType = item.dataValues.petType.toLowerCase();
-              return item;
-            })
+            products: data
           };
         }
         res.render("index", results);
