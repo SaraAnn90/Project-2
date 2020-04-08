@@ -2,33 +2,29 @@
 <section class="content-section" id="productDetail">
     <div class="container">
         <div class="row main">
-            <h1 class="font-weight-bold">Pet Food Analyzer</h1>
+            <div class="col-md-12">
+                <h1 class="font-weight-bold">Pet Food Analyzer</h1>
+            </div>
             {{#with product}}
             <div class="col-md-12">
-
-                <div class="">
-                    <h2 class="card-text">{{dataValues.foodName}} by {{dataValues.brandName}} for
-                        your {{dataValues.petType}}
-                    </h2>
-                </div>
+                <h2>
+                    {{dataValues.foodName}} by {{dataValues.brandName}} for your {{dataValues.petType}} 
+                </h2>
                 <hr>
                 <p>Type of food: {{dataValues.foodType}}</p>
-                <h3><u>Ingredients*:</u></h3>
+                <h3><u>*Ingredients:</u></h3>
                 <p>&nbsp;&nbsp;{{dataValues.ingred001}}</p>
                 <p>&nbsp;&nbsp;{{dataValues.ingred002}}</p>
                 <p>&nbsp;&nbsp;{{dataValues.ingred003}}</p>
                 <p>&nbsp;&nbsp;{{dataValues.ingred004}}</p>
                 <p>&nbsp;&nbsp;{{dataValues.ingred005}}</p>
+                <a href="/" class="btn btn-outline-primary">Back to search</a>
             </div>
             {{/with}}
+            <footer style="  position: absolute; bottom: 0; height: 60px;">*On a product label, the ingredients are listed
+                in order of predominance, with the
+                ingredients used in the greatest amount first, followed in descending order by those in smaller amounts.
+            </footer>
         </div>
-        <footer style="  position: absolute; bottom: 0; height: 60px;">*On a product label, the ingredients are listed
-            in order of predominance, with the
-            ingredients used in the greatest amount first, followed in descending order by those in smaller amounts.
-        </footer>
-
     </div>
-
-    </div>
-
 </section>

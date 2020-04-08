@@ -25,7 +25,10 @@ module.exports = function(app) {
         console.log(data);
         if (data && data.length) {
           results = { 
-            products: data
+            products: data.map(function(item){
+              item.dataValues.petType = item.dataValues.petType.toLowerCase();
+              return item;
+            })
           };
         }
         res.render("index", results);
