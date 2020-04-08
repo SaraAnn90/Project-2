@@ -4,21 +4,15 @@
   "description": "Project 2 Starter",
   "main": "server.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "./node_modules/.bin/nodemon server.js",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
     "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
-=======
-    "local": "./node_modules/.bin/nodemon server.js",
-    "start": "node server.js",
-    "lint": "./node_modules/.bin/eslint --quiet .",
-    "fix": "./node_modules/.bin/eslint --fix .",
-    "test": "echo \"No test specified!\"",
-    "test_local": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
->>>>>>> fbaf9092a09f886a9f4e2dedd0523c57b0358a62
   },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.0.0",
+    "eslint-config-standard": "^14.1.1",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
@@ -32,8 +26,5 @@
     "mocha": "^6.1.4",
     "nodemon": "^2.0.2",
     "prettier": "^1.17.1"
-  },
-  "engines": {
-    "node": "12.x"
   }
 }
