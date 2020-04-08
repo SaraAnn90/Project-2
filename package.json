@@ -4,10 +4,12 @@
   "description": "Project 2 Starter",
   "main": "server.js",
   "scripts": {
+    "local": "./node_modules/.bin/nodemon server.js",
     "start": "node server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test-local": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit",
+    "test": "echo \"No test specified!, skipping the tests\""
   },
   "license": "ISC",
   "dependencies": {
@@ -23,6 +25,8 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cross-env": "^5.2.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "mocha": "^6.1.4",
     "nodemon": "^2.0.2",
     "prettier": "^1.17.1"
